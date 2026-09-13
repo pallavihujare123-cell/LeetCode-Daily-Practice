@@ -5,14 +5,15 @@ My daily journey of solving LeetCode problems and improving
 problem-solving, Python, DSA, and coding skills.
 
 ## Goal
-
-Solve 1 LeetCode problem every day and understand:
-- Problem-solving logic
-- Data structures
-- Algorithms
-- Time complexity
-- Space complexity
-- Related programming concepts
+Every day:
+🧩 1 Problem
+🧠 Logic
+💻 Python Code
+📚 Related Concepts
+⏱️ Time Complexity
+💾 Space Complexity
+🔄 Concept Recall
+✅ GitHub Commit
 
 ## Topics
 
