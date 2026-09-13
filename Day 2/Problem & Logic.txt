@@ -1,0 +1,153 @@
+# DAY 02 — CONTAINS DUPLICATE
+
+## 🧩 1. Problem
+
+**LeetCode #217 — Contains Duplicate**
+
+Given an integer array `nums`, return `True` if any value appears at least twice in the array. Return `False` if every element is unique.
+
+### Example
+
+**Input:**
+
+```text
+nums = [1, 2, 3, 1]
+```
+
+**Output:**
+
+```text
+True
+```
+
+**Explanation:**
+
+The number `1` appears twice in the array.
+
+---
+
+## 🔍 2. How the Problem Works
+
+| Step | What Happens                               |
+| :--: | ------------------------------------------ |
+|  1️⃣ | Take one number from the array             |
+|  2️⃣ | Check whether the number is already stored |
+|  3️⃣ | If the number is found, return `True`      |
+|  4️⃣ | If the number is not found, store it       |
+|  5️⃣ | Continue checking the remaining numbers    |
+|  6️⃣ | If no duplicate is found, return `False`   |
+
+### Example
+
+```text
+nums = [1, 2, 3, 1]
+
+
+text
+1 → Not found → Store 1
+2 → Not found → Store 2
+3 → Not found → Store 3
+1 → Already found → Return True
+
+
+## 🧠 3. Concepts Used
+
+| Concept          | Definition                               | Syntax / Example   | Important Point              |
+| ---------------- | ---------------------------------------- | ------------------ | ---------------------------- |
+| **List**         | Collection used to store multiple values | `nums = [1, 2, 3]` | Index starts from `0`        |
+| **Set**          | Collection that stores unique values     | `seen = set()`     | Does not store duplicates    |
+| **Variable**     | Stores a value in memory                 | `num = 1`          | Value can change             |
+| **for loop**     | Repeats code for each item               | `for num in nums:` | Used for traversal           |
+| **if statement** | Executes code when condition is true     | `if num in seen:`  | Used for checking            |
+| **in operator**  | Checks whether a value exists            | `num in seen`      | Used for membership checking |
+| **add()**        | Adds an element to a set                 | `seen.add(num)`    | Stores the value             |
+| **Boolean**      | Represents `True` or `False`             | `return True`      | Used as the final result     |
+
+---
+
+## ✏️ 4. Important Syntax
+
+| Syntax             | Meaning                                  |
+| ------------------ | ---------------------------------------- |
+| `seen = set()`     | Creates an empty set                     |
+| `for num in nums:` | Gets each value from the list            |
+| `if num in seen:`  | Checks whether the number already exists |
+| `return True`      | Returns that a duplicate was found       |
+| `seen.add(num)`    | Adds the current number to the set       |
+| `return False`     | Returns that no duplicate was found      |
+
+
+
+## 🔄 6. Dry Run
+
+### Input
+
+```text
+nums = [1, 2, 3, 1]
+```
+
+| Step | Current Number | `seen` Before | Check         | Action        | `seen` After |
+| :--: | :------------: | :------------ | :------------ | :------------ | :----------- |
+|   1  |       `1`      | `{}`          | `1` not found | Add `1`       | `{1}`        |
+|   2  |       `2`      | `{1}`         | `2` not found | Add `2`       | `{1, 2}`     |
+|   3  |       `3`      | `{1, 2}`      | `3` not found | Add `3`       | `{1, 2, 3}`  |
+|   4  |       `1`      | `{1, 2, 3}`   | `1` found     | Return `True` | —            |
+
+### Final Output
+
+text
+True
+
+
+## ⏱️ 7. Complexity
+
+| Type                 | Complexity | Meaning                          |
+| -------------------- | :--------: | -------------------------------- |
+| **Time Complexity**  |   `O(n)`   | Array is traversed once          |
+| **Space Complexity** |   `O(n)`   | Set can store up to `n` elements |
+
+### Why `O(n)`?
+
+The loop checks each element once.
+text
+n elements
+   ↓
+one traversal
+   ↓
+O(n)
+
+
+## ⭐ 8. Important Points to Remember
+
+|    #   | Remember                                                           |
+| :----: | ------------------------------------------------------------------ |
+|  **1** | Contains Duplicate checks whether any value appears more than once |
+|  **2** | Return `True` if a duplicate exists                                |
+|  **3** | Return `False` if all values are unique                            |
+|  **4** | A **Set** is used to store unique values                           |
+|  **5** | `num in seen` checks whether the number already exists             |
+|  **6** | `seen.add(num)` stores the current number                          |
+|  **7** | Check the number **before** adding it to the set                   |
+|  **8** | Set lookup is efficient                                            |
+|  **9** | Time complexity is `O(n)`                                          |
+| **10** | Space complexity is `O(n)`                                         |
+| **11** | This is a common example of using a **Set**                        |
+| **12** | A Set does not store duplicate values                              |
+
+
+## 🧠 9. Interview Questions & Answers
+
+| Question                                        | Answer to Recall                                        |
+| ----------------------------------------------- | ------------------------------------------------------- |
+| **What is Contains Duplicate?**                 | Check whether any value appears more than once          |
+| **Which data structure is used?**               | Set                                                     |
+| **Why use a Set?**                              | To store unique values and check duplicates efficiently |
+| **What does `num in seen` do?**                 | Checks whether the number already exists                |
+| **What does `seen.add(num)` do?**               | Adds the number to the Set                              |
+| **What does `return True` mean?**               | A duplicate was found                                   |
+| **What does `return False` mean?**              | No duplicate was found                                  |
+| **What is the time complexity?**                | `O(n)`                                                  |
+| **What is the space complexity?**               | `O(n)`                                                  |
+| **Which collection stores only unique values?** | Set                                                     |
+
+
