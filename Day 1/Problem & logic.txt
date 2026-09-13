@@ -1,0 +1,100 @@
+Day 01 — Two Sum
+🧩 Problem
+Given an array of integers nums and an integer target, return the indices of the two numbers whose sum is equal to the target.
+
+Example
+Input:
+nums = [2, 7, 11, 15]
+target = 9
+
+Output:
+[0, 1]
+
+
+## 2. How the Problem Works
+
+| Step | What Happens                                             |
+| ---- | -------------------------------------------------------- |
+| 1️⃣  | Take one number from the array                           |
+| 2️⃣  | Calculate the required number: `target - current number` |
+| 3️⃣  | Check whether the required number is already stored      |
+| 4️⃣  | If found, return both indexes                            |
+| 5️⃣  | If not found, store the current number and its index     |
+| 6️⃣  | Continue until the pair is found                         |
+
+### Example
+
+text
+nums = [2, 7, 11, 15]
+target = 9
+
+2 → required = 9 - 2 = 7
+7 is not found → store 2
+
+7 → required = 9 - 7 = 2
+2 is found → return [0, 1]
+
+
+## 3. Concepts Used
+
+| Concept            | Definition                               | Syntax / Example                 | Important Point                |
+| ------------------ | ---------------------------------------- | -------------------------------- | ------------------------------ |
+| **List**           | Collection used to store multiple values | `nums = [2,7,11]`                | Index starts from `0`          |
+| **Dictionary**     | Stores data as key-value pairs           | `seen = {}`                      | Fast lookup                    |
+| **Variable**       | Stores a value in memory                 | `target = 9`                     | Value can change               |
+| **for loop**       | Repeats code for each item               | `for x in nums:`                 | Useful for traversal           |
+| **if statement**   | Executes code when condition is true     | `if required in seen:`           | Used for checking              |
+| **enumerate()**    | Gives both index and value while looping | `for i, num in enumerate(nums):` | Useful when index is needed    |
+| **Key-value pair** | Data stored as `key: value`              | `{2: 0}`                         | `2` = key, `0` = value         |
+| **Lookup**         | Checks whether a value exists            | `required in seen`               | Dictionary lookup is efficient |
+
+---
+
+## 4. Important Syntax
+
+| Syntax                           | Meaning                          |
+| -------------------------------- | -------------------------------- |
+| `seen = {}`                      | Creates an empty dictionary      |
+| `for i, num in enumerate(nums):` | Gets index and value             |
+| `required = target - num`        | Calculates the required number   |
+| `if required in seen:`           | Checks if required number exists |
+| `return [seen[required], i]`     | Returns the two indexes          |
+| `seen[num] = i`                  | Stores number and index          |
+
+
+## 6. Complexity
+
+| Type                 | Complexity | Meaning                    |
+| -------------------- | ---------- | -------------------------- |
+| **Time Complexity**  | `O(n)`     | Array is traversed once    |
+| **Space Complexity** | `O(n)`     | Dictionary stores elements |
+
+---
+
+## ⭐ Important Points to Remember
+
+|  # | Remember                                                              |
+| -: | --------------------------------------------------------------------- |
+|  1 | Two Sum asks for **indexes**, not just values                         |
+|  2 | Array/list indexing starts from `0`                                   |
+|  3 | `enumerate()` gives **index + value**                                 |
+|  4 | Dictionary stores **key-value pairs**                                 |
+|  5 | `target - current number` gives the required number                   |
+|  6 | `in` checks whether a key exists in the dictionary                    |
+|  7 | Store the number **after checking** the required value                |
+|  8 | Dictionary helps achieve `O(n)` time complexity                       |
+|  9 | `O(n)` is better than checking every pair with nested loops           |
+| 10 | This problem is a common example of using a **Hash Map / Dictionary** |
+
+
+
+| Question                     | Answer to Recall                         |
+| ---------------------------- | ---------------------------------------- |
+| What is Two Sum?             | Find two numbers whose sum equals target |
+| What data structure is used? | Dictionary                               |
+| Why dictionary?              | For fast lookup                          |
+| What does `enumerate()` do?  | Gives index and value                    |
+| What is `required`?          | `target - current number`                |
+| Time complexity?             | `O(n)`                                   |
+| Space complexity?            | `O(n)`                                   |
+| What does `return` give?     | Two indexes                              |
