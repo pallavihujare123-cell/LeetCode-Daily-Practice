@@ -1,0 +1,235 @@
+# Day 04 — Valid Parentheses
+
+🧩 **Problem**
+
+Given a string `s` containing only the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid.
+
+A string is valid when:
+
+1. Every opening bracket has a matching closing bracket.
+2. Brackets close in the correct order.
+3. Every closing bracket has a corresponding opening bracket.
+
+---
+
+## 1. Example
+
+### Example 1
+
+**Input:**
+
+```text
+s = "()"
+```
+
+**Output:**
+
+```text
+True
+```
+
+### Example 2
+
+**Input:**
+
+```text
+s = "()[]{}"
+```
+
+**Output:**
+
+```text
+True
+```
+
+### Example 3
+
+**Input:**
+
+```text
+s = "(]"
+```
+
+**Output:**
+
+```text
+False
+```
+
+### Example 4
+
+**Input:**
+
+```text
+s = "([{}])"
+```
+
+**Output:**
+
+```text
+True
+```
+
+### Example 5
+
+**Input:**
+
+```text
+s = "([)]"
+```
+
+**Output:**
+
+```text
+False
+```
+
+---
+
+## 2. How the Problem Works
+
+The main idea is to use a **Stack**.
+
+| Step | What Happens                                           |
+| ---- | ------------------------------------------------------ |
+| 1️⃣  | Take one character from the string                     |
+| 2️⃣  | If it is an opening bracket, store it in the stack     |
+| 3️⃣  | If it is a closing bracket, check the top of the stack |
+| 4️⃣  | Check whether the opening bracket matches              |
+| 5️⃣  | If it matches, remove it using `pop()`                 |
+| 6️⃣  | If it does not match, return `False`                   |
+| 7️⃣  | If the stack is empty at the end, return `True`        |
+
+---
+
+## 3. Bracket Matching
+
+| Closing Bracket | Matching Opening Bracket |
+| --------------- | ------------------------ |
+| `)`             | `(`                      |
+| `}`             | `{`                      |
+| `]`             | `[`                      |
+
+We can store these pairs in a dictionary:
+
+```python
+pairs = {
+    ')': '(',
+    '}': '{',
+    ']': '['
+}
+```
+
+---
+
+## 4. Example Dry Run
+
+```text
+s = "([{}])"
+```
+
+| Character | Action          | Stack |
+| --------- | --------------- | ----- |
+| `(`       | Push            | `(`   |
+| `[`       | Push            | `([`  |
+| `{`       | Push            | `([{` |
+| `}`       | Match `{` → Pop | `([`  |
+| `]`       | Match `[` → Pop | `(`   |
+| `)`       | Match `(` → Pop | Empty |
+
+Final stack:
+
+```text
+[]
+```
+
+Therefore:
+
+```text
+True
+```
+
+---
+
+## 5. Concepts Used
+
+| Concept          | Definition                           | Syntax / Example     | Important Point                       |
+| ---------------- | ------------------------------------ | -------------------- | ------------------------------------- |
+| **String**       | Collection of characters             | `s = "()"`           | Characters can be accessed one by one |
+| **List**         | Collection used to store values      | `stack = []`         | Used as a stack                       |
+| **Stack**        | Data structure that follows LIFO     | `stack.append("(")`  | Last In, First Out                    |
+| **Dictionary**   | Stores key-value pairs               | `pairs = {')': '('}` | Used for bracket matching             |
+| **for loop**     | Repeats code for each character      | `for char in s:`     | Traverses the string                  |
+| **if statement** | Executes code when condition is true | `if char in "([{":`  | Checks conditions                     |
+| **append()**     | Adds an element to the end of a list | `stack.append(char)` | Used as PUSH                          |
+| **pop()**        | Removes the last element             | `stack.pop()`        | Used as POP                           |
+| **in operator**  | Checks whether a value exists        | `char in "([{"`      | Used for checking                     |
+| **return**       | Sends a result back                  | `return False`       | Stops the function                    |
+
+---
+
+## 6. Important Syntax
+
+| Syntax                   | Meaning                                 |
+| ------------------------ | --------------------------------------- |
+| `stack = []`             | Creates an empty stack                  |
+| `pairs = {}`             | Creates a dictionary                    |
+| `for char in s:`         | Loops through every character           |
+| `if char in "([{":`      | Checks for opening brackets             |
+| `stack.append(char)`     | Adds opening bracket to stack           |
+| `if not stack:`          | Checks whether stack is empty           |
+| `stack.pop()`            | Removes the last opening bracket        |
+| `pairs[char]`            | Gets the matching opening bracket       |
+| `return False`           | Returns invalid                         |
+| `return len(stack) == 0` | Returns `True` only when stack is empty |
+
+
+## 7. Why Do We Use a Stack?
+
+A stack follows:
+
+**LIFO → Last In, First Out**
+
+Example:
+
+```text
+Opening brackets:
+
+(
+(
+[
+{
+```
+
+The last opening bracket `{` must be closed first.
+
+```text
+{ → }
+[ → ]
+( → )
+```
+
+This is exactly how a stack works.
+
+---
+
+## 8. Complexity
+
+| Type                 | Complexity | Meaning                              |
+| -------------------- | ---------- | ------------------------------------ |
+| **Time Complexity**  | `O(n)`     | String is traversed once             |
+| **Space Complexity** | `O(n)`     | Stack can store up to `n` characters |
+
+---
+
+## ⭐ Important Points to Remember
+
+|  # | Remember                                               |
+| -: | ------------------------------------------------------ |
+|  1 | Valid Parentheses uses a **Stack**                     |
+|  2 | Stack follows **LIFO — Last In, First Out**            |
+|  3 | Opening brackets are stored in the stack               |
+|  4 | Closing brackets are matched with the top of the stack |
+|  5 | `append()` is used to **push** an element              |
+|  6 | `pop()` is used to **remove** the top element          |
+|  7 | Dictionary store                                       |
