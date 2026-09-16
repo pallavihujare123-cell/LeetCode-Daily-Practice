@@ -1,0 +1,68 @@
+🧩 1. Problem
+Given an integer x, return True if x is a palindrome, otherwise return False.
+
+A palindrome reads the same forward and backward.
+Examples
+Input: 121
+Output: True
+Input: -121
+Output: False
+
+🧠 2. What is a Palindrome?
+A palindrome is a number or string that remains the same when reversed.
+
+💡 3. Logic
+The easiest beginner approach:
+
+Convert the number into a string.
+Reverse the string.
+Compare the original and reversed values.
+If they are equal → True.
+Otherwise → False.
+Example: 121
+Original → 121
+Reverse  → 121
+
+121 == 121
+     ↓
+   True
+Example: 123
+Original → 123
+Reverse  → 321
+
+123 != 321
+     ↓
+   False
+
+🔍 4. Understand [::-1]
+This is an important Python concept.
+
+text = "hello"
+print(text[::-1])
+
+Output:
+olleh
+
+[::-1] means reverse the sequence.
+So:
+
+str(x)[::-1]
+means:
+Convert x to a string and reverse it.
+
+📚 7. Concept for Your Notes
+| Concept    | Meaning                      |
+| ---------- | ---------------------------- |
+| Palindrome | Same forward and backward    |
+| `str()`    | Converts value into a string |
+| `[::-1]`   | Reverses a string/list       |
+| `==`       | Compares two values          |
+| `True`     | Values are equal             |
+| `False`    | Values are different         |
+
+
+⏱️ Complexity
+Time:  O(n)
+Space: O(n)
+
+where n is the number of digits.
