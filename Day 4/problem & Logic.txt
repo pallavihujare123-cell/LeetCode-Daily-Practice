@@ -1,5 +1,4 @@
 # Day 04 — Valid Parentheses
-
 🧩 **Problem**
 
 Given a string `s` containing only the characters `(`, `)`, `{`, `}`, `[` and `]`, determine if the input string is valid.
