@@ -1,0 +1,72 @@
+🚀 Day 08 — LeetCode 704: Binary Search
+🧩 Problem
+
+Given a sorted array nums and a target value, return the index of target.
+If the target does not exist, return -1.
+
+Example
+Input:
+nums = [-1,0,3,5,9,12]
+target = 9
+
+Output:
+4
+
+Because:
+Index:  0  1  2  3  4   5
+Value: -1  0  3  5  9  12
+                    ↑
+                  target
+💡 Logic — Binary Search
+
+Instead of checking every element one by one, we check the middle element.
+
+[-1, 0, 3, 5, 9, 12]
+          ↑
+         mid
+
+For each step:
+
+If nums[mid] == target → return mid
+If nums[mid] < target → search the right half
+If nums[mid] > target → search the left half
+🔄 Dry Run
+nums = [-1,0,3,5,9,12]
+target = 9
+
+left = 0
+right = 5
+
+mid = (0 + 5) // 2 = 2
+nums[2] = 3
+
+3 < 9
+→ search right side
+left = 3
+
+Next:
+
+left = 3
+right = 5
+
+mid = (3 + 5) // 2 = 4
+nums[4] = 9
+
+9 == 9
+→ return 4
+
+📚 Important Concepts
+| Concept       | Meaning                                               |
+| ------------- | ----------------------------------------------------- |
+| Binary Search | Search by repeatedly dividing the search area in half |
+| `left`        | Starting index                                        |
+| `right`       | Ending index                                          |
+| `mid`         | Middle index                                          |
+| `while`       | Repeats the search                                    |
+| `//`          | Integer division                                      |
+
+⏱️ Complexity
+Time:  O(log n)
+Space: O(1)
+
+⭐ Important interview point: Binary Search requires the array to be sorted.

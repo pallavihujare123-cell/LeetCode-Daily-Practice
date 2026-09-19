@@ -1,0 +1,68 @@
+🧩 Problem
+You are given an array prices where:
+
+prices[i] = stock price on day i
+You can buy once
+You can sell once
+You must buy before you sell
+
+Return the maximum profit you can achieve.
+If no profit is possible, return 0.
+
+Example
+Input:
+prices = [7, 1, 5, 3, 6, 4]
+
+Output:
+5
+
+Why?
+Buy at 1
+Sell at 6
+
+Profit = 6 - 1 = 5
+💡 Logic
+
+We maintain two values:
+
+min_price → lowest price seen so far
+max_profit → maximum profit found so far
+
+For every price:
+
+profit = current_price - min_price
+
+Then update the maximum profit.
+
+Dry Run
+
+For:
+
+[7, 1, 5, 3, 6, 4]
+| Price | Minimum Price | Profit | Max Profit |
+| ----: | ------------: | -----: | ---------: |
+|     7 |             7 |      0 |          0 |
+|     1 |             1 |      0 |          0 |
+|     5 |             1 |      4 |          4 |
+|     3 |             1 |      2 |          4 |
+|     6 |             1 |      5 |          5 |
+|     4 |             1 |      3 |          5 |
+
+Final answer:
+5
+
+📚 Concept
+| Concept         | Meaning                              |
+| --------------- | ------------------------------------ |
+| Array           | Stores daily stock prices            |
+| Greedy          | Keep the best possible choice so far |
+| One Pass        | Traverse the array only once         |
+| `min()` concept | Track the lowest buying price        |
+| Maximum         | Track the highest profit             |
+
+
+⏱️ Complexity
+Time Complexity: O(n)
+Space Complexity: O(1)
+
+This is better than checking every possible buy/sell pair, which would take O(n²).
